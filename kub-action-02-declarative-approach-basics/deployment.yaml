@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-first-kube-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: first-app
+      tier: backend
+  template:
+    metadata: 
+      labels:
+        app: first-app
+        tier: backend
+    spec: 
+      containers:
+        - name: sample-node
+          image: mukkipandy/kube-first-app:latest
+        # - name: ...
+        #   image: ...
